@@ -25,15 +25,13 @@ Plug 'junegunn/seoul256.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-denite'
 Plug 'preservim/nerdtree'
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" Denite - Fuzzy finding, buffer management
-Plug 'Shougo/denite.nvim'
-
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -87,8 +85,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
-if has('patch8.1.1068')
-  " Use `complete_info` if your (Neo)Vim version supports it.
+if exists('*complete_info')
   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -191,6 +188,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " -------------------------------------------------------------------------------------------------
 " GoDef
 " -------------------------------------------------------------------------------------------------
+
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
@@ -237,8 +235,9 @@ endif
 "let g:airline#extensions#hunks#enabled=0
 
 " -------------------------------------------------------------------------------------------------
-" Denite setup
+" Denite settings
 " -------------------------------------------------------------------------------------------------
+" https://github.com/ctaylo21/jarvis/blob/master/config/nvim/init.vim#L58
 " Use ripgrep for searching current directory for files
 " By default, ripgrep will respect rules in .gitignore
 "   --files: Print each file that would be searched (but don't search)
@@ -300,7 +299,6 @@ endfunction
 
 call s:profile(s:denite_options)
 
-" Denite shorcuts
 "   ;         - Browser currently open buffers
 "   <leader>t - Browse list of files in current directory
 "   <leader>g - Search current directory for occurences of given term and close window if no results
