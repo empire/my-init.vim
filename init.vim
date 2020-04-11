@@ -235,7 +235,7 @@ endif
 "let g:airline#extensions#hunks#enabled=0
 
 " -------------------------------------------------------------------------------------------------
-" Denite settings
+" Denite setup
 " -------------------------------------------------------------------------------------------------
 " https://github.com/ctaylo21/jarvis/blob/master/config/nvim/init.vim#L58
 " Use ripgrep for searching current directory for files
