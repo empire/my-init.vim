@@ -2,6 +2,7 @@ set ts=2 shiftwidth=2 expandtab
 set shell=/usr/bin/zsh
 set autoindent
 set nu
+set relativenumber
 set nowrap
 syntax on
 set modeline
@@ -11,14 +12,17 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 set runtimepath^=/usr/share/vim/vimfiles
 tnoremap <Esc> <C-\><C-n>
+let mapleader = ","
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.cache/nvim/plugged')
 
 " Declare the list of plugins.
+Plug 'airblade/vim-gitgutter'
 Plug 'dyng/ctrlsf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/seoul256.vim'
+Plug 'tpope/vim-fugitive'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'preservim/nerdtree'
@@ -364,7 +368,6 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action', 'split')
 endfunction
 
-
 " -------------------------------------------------------------------------------------------------
 " CtrlSF setup
 " -------------------------------------------------------------------------------------------------
@@ -376,6 +379,16 @@ nmap     <leader>p <Plug>CtrlSFPwordPath
 nnoremap <leader>o :CtrlSFOpen<CR>
 nnoremap <leader>t :CtrlSFToggle<CR>
 inoremap <leader>t <Esc>:CtrlSFToggle<CR>
+
+" -------------------------------------------------------------------------------------------------
+" NERDTree setup
+" -------------------------------------------------------------------------------------------------
+nmap     <leader>n :NERDTreeFind<CR>
+
+" -------------------------------------------------------------------------------------------------
+" GitGutter setup
+" -------------------------------------------------------------------------------------------------
+" GitGutterLineNrHighlightsEnable
 
 " -------------------------------------------------------------------------------------------------
 "
