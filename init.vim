@@ -23,6 +23,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/seoul256.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-denite'
@@ -300,11 +301,11 @@ endfunction
 call s:profile(s:denite_options)
 
 "   ;         - Browser currently open buffers
-"   <leader>t - Browse list of files in current directory
+"   <leader>; - Browse list of files in current directory
 "   <leader>g - Search current directory for occurences of given term and close window if no results
 "   <leader>j - Search current directory for occurences of word under cursor
 nmap ; :Denite buffer<CR>
-nmap <leader>t :DeniteProjectDir file/rec<CR>
+nmap <leader>; :DeniteProjectDir file/rec<CR>
 nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
 
@@ -387,6 +388,33 @@ nmap     <leader>n :NERDTreeFind<CR>
 " GitGutter setup
 " -------------------------------------------------------------------------------------------------
 " GitGutterLineNrHighlightsEnable
+
+" -------------------------------------------------------------------------------------------------
+" Startify setup
+" -------------------------------------------------------------------------------------------------
+nnoremap <leader>ss :SSave<CR>
+nnoremap <leader>sc :SClose<CR>
+
+" 'Most Recent Files' number
+let g:startify_files_number           = 18
+
+" Update session automatically as you exit vim
+let g:startify_session_persistence    = 1
+
+let g:startify_lists = [
+      \ { 'type': 'sessions',  'header': ['   Sessions']       },
+      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'files',     'header': ['   MRU']            },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ ]
+
+let g:startify_session_before_save = [
+    \ 'echo "Cleaning up before saving.."',
+    \ 'silent! NERDTreeClose'
+        \ ]
+
+let NERDTreeHijackNetrw = 0
 
 " -------------------------------------------------------------------------------------------------
 "
