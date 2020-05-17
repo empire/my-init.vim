@@ -13,6 +13,8 @@ noremap <Right> <NOP>
 set runtimepath^=/usr/share/vim/vimfiles
 tnoremap <Esc> <C-\><C-n>
 let mapleader = ","
+" Replace/change selected string with another string
+vnoremap <leader>r "hy:%s/<C-r>h/<C-r>h/gc<left><left><left>
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.cache/nvim/plugged')
@@ -187,12 +189,15 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " -------------------------------------------------------------------------------------------------
-" GoDef
+" vim-go setup
 " -------------------------------------------------------------------------------------------------
 
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
+let g:go_doc_popup_window = 1
+let g:go_doc_keywordprg_enabled = 1
+
 
 " -------------------------------------------------------------------------------------------------
 " Vim airline
@@ -394,6 +399,7 @@ nmap     <leader>n :NERDTreeFind<CR>
 " -------------------------------------------------------------------------------------------------
 nnoremap <leader>ss :SSave<CR>
 nnoremap <leader>sc :SClose<CR>
+nnoremap <leader>sl :SLoad<SPACE>
 
 " 'Most Recent Files' number
 let g:startify_files_number           = 18
