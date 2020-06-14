@@ -1,6 +1,7 @@
 set ts=2 shiftwidth=2 expandtab
 set shell=/usr/bin/zsh
 set autoindent
+set mmp=10000
 set nu
 set relativenumber
 set nowrap
