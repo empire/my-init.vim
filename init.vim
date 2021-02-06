@@ -404,6 +404,7 @@ if PlugLoaded('ctrlsf.vim')
   nnoremap <leader>o :CtrlSFOpen<CR>
   nnoremap <leader>t :CtrlSFToggle<CR>
   inoremap <leader>t <Esc>:CtrlSFToggle<CR>
+  let g:ctrlsf_follow_symlinks = 0
 endif
 
 " -------------------------------------------------------------------------------------------------
