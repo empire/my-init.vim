@@ -30,14 +30,15 @@ call plug#begin('~/.cache/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'dyng/ctrlsf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'glench/vim-jinja2-syntax'
 Plug 'junegunn/seoul256.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-denite'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'preservim/nerdtree'
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
