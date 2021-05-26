@@ -36,6 +36,9 @@ Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc-denite'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'preservim/nerdtree'
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fugitive'
@@ -413,6 +416,23 @@ endif
 " -------------------------------------------------------------------------------------------------
 if PlugLoaded('nerdtree')
   nmap     <leader>n :NERDTreeFind<CR>
+endif
+
+" -------------------------------------------------------------------------------------------------
+" nvim-telescope setup
+" -------------------------------------------------------------------------------------------------
+if PlugLoaded('telescope.nvim')
+  " " Find files using Telescope command-line sugar.
+  " nnoremap <leader>ff <cmd>Telescope find_files<cr>
+  " nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+  " nnoremap <leader>fb <cmd>Telescope buffers<cr>
+  " nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+  " Using lua functions
+  nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+  nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+  nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+  nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 endif
 
 " -------------------------------------------------------------------------------------------------
