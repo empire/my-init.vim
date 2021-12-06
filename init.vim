@@ -17,6 +17,14 @@ let mapleader = ","
 " Replace/change selected string with another string
 vnoremap <leader>r "hy:%s/<C-r>h/<C-r>h/gc<left><left><left>
 
+nnoremap th  :tabfirst<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tn  :tabnext<CR>
+nnoremap tm  :tabm<CR>
+nnoremap td  :tabclose<CR>
+
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
