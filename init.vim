@@ -25,6 +25,8 @@ nnoremap tn  :tabnext<CR>
 nnoremap tm  :tabm<CR>
 nnoremap td  :tabclose<CR>
 
+let g:ale_disable_lsp = 1
+
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -36,6 +38,7 @@ call plug#begin('~/.cache/nvim/plugged')
 
 " Declare the list of plugins.
 Plug 'airblade/vim-gitgutter'
+Plug 'dense-analysis/ale'
 Plug 'dyng/ctrlsf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'glench/vim-jinja2-syntax'
@@ -71,6 +74,15 @@ endfunction
 if PlugLoaded('gruvbox')
   colorscheme gruvbox
   let g:gruvbox_italic=1
+endif
+
+" -------------------------------------------------------------------------------------------------
+" Plug 'dense-analysis/ale' default settings
+" -------------------------------------------------------------------------------------------------
+if PlugLoaded('ale')
+  let g:ale_linters = {
+\   'go': ['revive', 'staticcheck'],
+\}
 endif
 
 " -------------------------------------------------------------------------------------------------
