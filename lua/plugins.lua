@@ -5,6 +5,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   use 'airblade/vim-gitgutter'
+  use 'airblade/vim-rooter'
   use { 'dense-analysis/ale', config = [[require('config.ale')]] }
   use { 'dyng/ctrlsf.vim', config = [[require('config.ctrlsf')]] }
   use { 'fatih/vim-go', run = ':GoUpdateBinaries', config = [[require('config.vim-go')]] }
