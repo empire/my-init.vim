@@ -3,8 +3,13 @@
   "languageserver": {
     "golang": {
       "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"]
+      "rootPatterns": ["go.work", "go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "settings": {
+        "_gopls": {
+          "experimentalWorkspaceModule": true
+        }
+      }
     },
     "python": {
       "command": "python",
